@@ -362,6 +362,146 @@
       .hero-meta { gap: 16px; flex-direction: column; align-items: center; }
     }
 
+    /* ── MOCKUP TABS ── */
+    .mockup-tabs {
+      display: flex; gap: 8px; margin-bottom: 16px;
+    }
+    .mockup-tab {
+      padding: 9px 20px; border-radius: 10px; border: 1px solid rgba(255,255,255,.15);
+      font-size: .85rem; font-weight: 600; cursor: pointer;
+      background: rgba(255,255,255,.07); color: #9ca3af;
+      transition: all .2s; font-family: 'Noto Sans KR', sans-serif;
+    }
+    .mockup-tab.active {
+      background: var(--green); border-color: var(--green-light); color: #fff;
+    }
+    .mockup-tab:hover:not(.active) { background: rgba(255,255,255,.13); color: #d1fae5; }
+
+    /* ── MOCKUP SCREEN ── */
+    .mockup-screen {
+      background: #fff; border-radius: 12px; overflow-y: auto;
+      height: 560px; -webkit-overflow-scrolling: touch;
+    }
+    /* app header inside mockup */
+    .mk-header {
+      background: #fff; border-bottom: 1px solid #e5e7eb; padding: 0 16px;
+      height: 48px; display: flex; align-items: center; justify-content: space-between;
+      position: sticky; top: 0; z-index: 10;
+    }
+    .mk-logo { display: flex; align-items: center; gap: 6px; font-weight: 700; font-size: .9rem; color: #16a34a; }
+    .mk-badge { font-size: .65rem; background: #f3f4f6; color: #9ca3af; padding: 2px 7px; border-radius: 999px; }
+    /* home hero */
+    .mk-hero { background: #fff; border-bottom: 1px solid #f3f4f6; padding: 32px 20px 24px; text-align: center; }
+    .mk-hero h1 { font-size: 1.3rem; font-weight: 800; line-height: 1.3; margin-bottom: 8px; }
+    .mk-hero h1 span { color: #16a34a; }
+    .mk-hero p { font-size: .78rem; color: #6b7280; margin-bottom: 18px; }
+    .mk-input-row { display: flex; gap: 8px; }
+    .mk-input {
+      flex: 1; height: 42px; border: 1.5px solid #d1d5db; border-radius: 10px;
+      padding: 0 12px; font-size: .78rem; font-family: monospace;
+      color: #374151; background: #fff; outline: none;
+    }
+    .mk-btn {
+      height: 42px; padding: 0 16px; background: #16a34a; color: #fff;
+      border: none; border-radius: 10px; font-size: .8rem; font-weight: 600;
+      cursor: default; display: flex; align-items: center; gap: 5px; white-space: nowrap;
+      font-family: 'Noto Sans KR', sans-serif;
+    }
+    .mk-hint { font-size: .68rem; color: #9ca3af; margin-top: 8px; }
+    /* feature grid */
+    .mk-features { display: grid; grid-template-columns: repeat(2,1fr); gap: 10px; padding: 20px; }
+    .mk-feat {
+      background: #fff; border: 1px solid #e5e7eb; border-radius: 12px;
+      padding: 14px 12px; text-align: center;
+    }
+    .mk-feat-icon { width: 36px; height: 36px; border-radius: 50%; background: #f0fdf4; display: flex; align-items: center; justify-content: center; margin: 0 auto 8px; font-size: .95rem; }
+    .mk-feat h4 { font-size: .78rem; font-weight: 700; margin-bottom: 3px; }
+    .mk-feat p { font-size: .68rem; color: #9ca3af; }
+    /* demo vin list */
+    .mk-vins { padding: 0 20px 20px; }
+    .mk-vins h3 { font-size: .72rem; color: #9ca3af; font-weight: 600; margin-bottom: 8px; }
+    .mk-vin {
+      display: flex; align-items: center; justify-content: space-between;
+      background: #fff; border: 1px solid #e5e7eb; border-radius: 10px;
+      padding: 10px 12px; margin-bottom: 6px;
+    }
+    .mk-vin-code { font-family: monospace; font-size: .75rem; color: #374151; }
+    .mk-vin-label { font-size: .65rem; color: #6b7280; margin-top: 2px; }
+    .mk-grade { font-size: .68rem; font-weight: 700; padding: 3px 8px; border-radius: 999px; }
+    .grade-good { background: #dcfce7; color: #15803d; }
+    .grade-warn { background: #fef3c7; color: #92400e; }
+    .grade-best { background: #dcfce7; color: #15803d; }
+    /* report back nav */
+    .mk-back { display: flex; align-items: center; gap: 8px; padding: 10px 16px; font-size: .78rem; color: #6b7280; }
+    .mk-back span { color: #d1d5db; }
+    .mk-back code { font-size: .7rem; color: #9ca3af; }
+    /* vehicle card */
+    .mk-vehicle { background: #fff; border: 1px solid #e5e7eb; border-radius: 12px; margin: 0 16px 12px; padding: 14px; }
+    .mk-vehicle-row { display: flex; gap: 10px; align-items: flex-start; }
+    .mk-car-icon { width: 36px; height: 36px; border-radius: 50%; background: #f3f4f6; display: flex; align-items: center; justify-content: center; font-size: .95rem; flex-shrink: 0; }
+    .mk-vehicle h2 { font-size: 1rem; font-weight: 800; margin-bottom: 3px; }
+    .mk-vehicle p { font-size: .72rem; color: #6b7280; }
+    .mk-vehicle-meta { display: flex; gap: 12px; margin-top: 8px; }
+    .mk-vehicle-meta span { font-size: .68rem; color: #9ca3af; }
+    .mk-vehicle-meta strong { color: #374151; }
+    .mk-src-badge { display: inline-flex; align-items: center; gap: 3px; font-size: .65rem; font-weight: 600; background: #eff6ff; color: #2563eb; border: 1px solid #bfdbfe; padding: 2px 7px; border-radius: 999px; margin-left: 6px; vertical-align: middle; }
+    /* score gauge */
+    .mk-score { background: #f0fdf4; border: 1px solid #bbf7d0; border-radius: 12px; margin: 0 16px 12px; padding: 14px 16px; display: flex; align-items: center; gap: 16px; }
+    .mk-gauge-wrap { position: relative; width: 80px; height: 80px; flex-shrink: 0; }
+    .mk-gauge-label { position: absolute; inset: 0; display: flex; flex-direction: column; align-items: center; justify-content: center; }
+    .mk-gauge-score { font-size: 1.3rem; font-weight: 800; color: #15803d; line-height: 1; }
+    .mk-gauge-sub { font-size: .6rem; color: #9ca3af; }
+    .mk-score-info { flex: 1; }
+    .mk-score-info .label { font-size: .68rem; color: #6b7280; margin-bottom: 2px; }
+    .mk-score-info .grade { font-size: 1.3rem; font-weight: 800; color: #15803d; margin-bottom: 4px; }
+    .mk-score-info .desc { font-size: .7rem; color: #6b7280; margin-bottom: 8px; }
+    .mk-bar-row { display: flex; align-items: center; gap: 6px; margin-bottom: 4px; }
+    .mk-bar-row .bl { font-size: .65rem; color: #9ca3af; width: 40px; flex-shrink: 0; }
+    .mk-bar-bg { flex: 1; height: 5px; background: #e5e7eb; border-radius: 999px; overflow: hidden; }
+    .mk-bar-fill { height: 100%; border-radius: 999px; background: #16a34a; }
+    .mk-bar-val { font-size: .65rem; color: #9ca3af; width: 20px; text-align: right; }
+    /* summary cards */
+    .mk-summary { display: grid; grid-template-columns: repeat(4,1fr); gap: 8px; margin: 0 16px 12px; }
+    .mk-sum-card { background: #fff; border: 1px solid #e5e7eb; border-radius: 10px; padding: 10px 6px; text-align: center; }
+    .mk-sum-card .si { font-size: .9rem; margin-bottom: 4px; }
+    .mk-sum-card .sl { font-size: .62rem; color: #9ca3af; margin-bottom: 4px; }
+    .mk-sum-card .sv { font-size: .82rem; font-weight: 700; padding: 2px 6px; border-radius: 6px; display: inline-block; }
+    .sv-good { background: #f0fdf4; color: #15803d; }
+    .sv-warn { background: #fef3c7; color: #92400e; }
+    .sv-bad { background: #fef2f2; color: #dc2626; }
+    /* section box */
+    .mk-section { background: #fff; border: 1px solid #e5e7eb; border-radius: 12px; margin: 0 16px 12px; padding: 14px; }
+    .mk-section-title { display: flex; align-items: center; gap: 6px; font-size: .82rem; font-weight: 700; margin-bottom: 12px; color: #111827; }
+    .mk-section-title .ti { font-size: .85rem; }
+    /* accident table */
+    .mk-table { width: 100%; border-collapse: collapse; font-size: .72rem; }
+    .mk-table th { color: #9ca3af; font-weight: 600; text-align: left; padding-bottom: 6px; border-bottom: 1px solid #f3f4f6; }
+    .mk-table td { padding: 7px 0; border-bottom: 1px solid #f9fafb; color: #374151; vertical-align: middle; }
+    .mk-acc-badge { background: #fef3c7; color: #92400e; font-size: .65rem; font-weight: 600; padding: 2px 7px; border-radius: 999px; }
+    /* mileage chart */
+    .mk-chart-wrap { width: 100%; overflow: hidden; }
+    .mk-chart-footer { display: flex; justify-content: space-between; margin-top: 4px; font-size: .65rem; color: #9ca3af; }
+    /* owner timeline */
+    .mk-timeline { position: relative; padding-left: 16px; }
+    .mk-timeline::before { content: ''; position: absolute; left: 9px; top: 6px; bottom: 6px; width: 1px; background: #e5e7eb; }
+    .mk-tl-item { position: relative; display: flex; gap: 10px; margin-bottom: 12px; }
+    .mk-tl-dot { width: 12px; height: 12px; border-radius: 50%; border: 2px solid #9ca3af; background: #fff; flex-shrink: 0; margin-top: 3px; z-index: 1; }
+    .mk-tl-dot.current { background: #16a34a; border-color: #16a34a; }
+    .mk-tl-dot.rental { background: #f59e0b; border-color: #f59e0b; }
+    .mk-tl-name { font-size: .78rem; font-weight: 600; }
+    .mk-tl-meta { font-size: .67rem; color: #9ca3af; margin-top: 2px; }
+    .mk-tl-type { font-size: .65rem; font-weight: 600; padding: 2px 7px; border-radius: 999px; margin-left: 6px; }
+    .type-normal { background: #f3f4f6; color: #6b7280; }
+    .type-rental { background: #fef3c7; color: #92400e; }
+    .type-current { background: #dcfce7; color: #15803d; }
+    /* recall empty */
+    .mk-empty { display: flex; align-items: center; gap: 8px; background: #f0fdf4; border-radius: 8px; padding: 10px 12px; font-size: .78rem; color: #15803d; font-weight: 500; }
+    /* disclaimer */
+    .mk-disclaimer { text-align: center; font-size: .62rem; color: #d1d5db; padding: 12px 16px 20px; }
+    /* gauge ring animation */
+    @keyframes gaugeIn { from { stroke-dashoffset: 251; } to { stroke-dashoffset: 55; } }
+    .mk-gauge-ring { animation: gaugeIn 1s .3s cubic-bezier(.4,0,.2,1) both; }
+
     /* ── SCROLL ANIMATION ── */
     .fade-up {
       opacity: 0; transform: translateY(24px);
@@ -585,8 +725,14 @@
 <section id="demo" style="background: var(--gray-900); padding: 80px 24px;">
   <div class="section-inner">
     <p class="section-number" style="color: #4ade80;">04</p>
-    <h2 class="section-title" style="color: #fff;">라이브 데모</h2>
-    <p class="section-desc" style="color: #9ca3af;">실제 배포된 서비스를 아래에서 바로 사용해볼 수 있습니다.</p>
+    <h2 class="section-title" style="color: #fff;">화면 데모</h2>
+    <p class="section-desc" style="color: #9ca3af;">실제 서비스 화면을 목업으로 구현했습니다. 탭을 눌러 두 화면을 확인하세요.</p>
+
+    <!-- Tabs -->
+    <div class="mockup-tabs">
+      <button class="mockup-tab active" id="tab-home" onclick="switchMockup('home')">🏠 홈 화면</button>
+      <button class="mockup-tab" id="tab-report" onclick="switchMockup('report')">📊 리포트 화면</button>
+    </div>
 
     <div class="demo-wrap fade-up">
       <div class="browser-bar">
@@ -595,22 +741,236 @@
           <div class="dot dot-yellow"></div>
           <div class="dot dot-green"></div>
         </div>
-        <div class="browser-url">https://ksa-vin-project.vercel.app</div>
+        <div class="browser-url" id="mock-url">https://ksa-vin-project.vercel.app</div>
       </div>
-      <div class="demo-iframe-wrap">
-        <iframe
-          src="https://ksa-vin-project.vercel.app"
-          title="KSA VIN Project 라이브 데모"
-          loading="lazy"
-          allow="clipboard-read; clipboard-write"
-        ></iframe>
+
+      <!-- ── HOME SCREEN ── -->
+      <div class="mockup-screen" id="mockup-home">
+        <!-- header -->
+        <div class="mk-header">
+          <div class="mk-logo">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+            VIN Check
+          </div>
+          <span class="mk-badge">MVP · Mock 데이터</span>
+        </div>
+        <!-- hero -->
+        <div class="mk-hero">
+          <h1>중고차 구매 전,<br/><span>진짜 이력</span>을 확인하세요</h1>
+          <p>VIN(차대번호) 하나로 사고이력·소유자이력·주행거리·리콜 정보를 한 번에</p>
+          <div class="mk-input-row">
+            <input class="mk-input" type="text" value="VIN 번호 17자리 입력" readonly />
+            <button class="mk-btn">
+              <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+              조회
+            </button>
+          </div>
+          <p class="mk-hint">차량등록증 또는 앞유리 하단(대시보드)에서 확인하실 수 있습니다</p>
+        </div>
+        <!-- features -->
+        <div style="padding: 16px 20px 4px; font-size:.68rem; font-weight:700; color:#9ca3af; letter-spacing:.1em;">확인 가능한 항목</div>
+        <div class="mk-features">
+          <div class="mk-feat">
+            <div class="mk-feat-icon">🛡️</div>
+            <h4>사고 이력</h4>
+            <p>보험 처리 횟수, 침수·전손 여부</p>
+          </div>
+          <div class="mk-feat">
+            <div class="mk-feat-icon">👤</div>
+            <h4>소유자 이력</h4>
+            <p>명의 변경 횟수, 렌트·영업용</p>
+          </div>
+          <div class="mk-feat">
+            <div class="mk-feat-icon">📏</div>
+            <h4>주행거리 검증</h4>
+            <p>계기 조작 이상 탐지</p>
+          </div>
+          <div class="mk-feat">
+            <div class="mk-feat-icon">📋</div>
+            <h4>리콜 정보</h4>
+            <p>미완료 리콜 항목 확인</p>
+          </div>
+        </div>
+        <!-- demo vins -->
+        <div class="mk-vins">
+          <h3>데모 VIN으로 바로 확인하기</h3>
+          <div class="mk-vin">
+            <div>
+              <div class="mk-vin-code">KMHXX00000X123456</div>
+              <div class="mk-vin-label">현대 아반떼 CN7 2021 · 사고 1회</div>
+            </div>
+            <span class="mk-grade grade-good">양호</span>
+          </div>
+          <div class="mk-vin">
+            <div>
+              <div class="mk-vin-code">KNAJX814X0X987654</div>
+              <div class="mk-vin-label">기아 K5 DL3 2020 · 사고 2회·리콜</div>
+            </div>
+            <span class="mk-grade grade-warn">주의</span>
+          </div>
+          <div class="mk-vin">
+            <div>
+              <div class="mk-vin-code">DEMO00000000000001</div>
+              <div class="mk-vin-label">제네시스 G80 RG3 2022 · 무사고</div>
+            </div>
+            <span class="mk-grade grade-best">우수</span>
+          </div>
+        </div>
+        <div style="text-align:center; font-size:.65rem; color:#d1d5db; padding:8px 0 20px;">© 2025 VIN Check · MVP Demo · Mock 데이터 기반</div>
+      </div>
+
+      <!-- ── REPORT SCREEN (아반떼 CN7, 78점) ── -->
+      <div class="mockup-screen" id="mockup-report" style="display:none;">
+        <!-- header -->
+        <div class="mk-header">
+          <div class="mk-logo">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+            VIN Check
+          </div>
+          <span class="mk-badge">MVP · Mock 데이터</span>
+        </div>
+        <!-- back nav -->
+        <div class="mk-back">
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="15 18 9 12 15 6"/></svg>
+          새 조회
+          <span>|</span>
+          <code>KMHXX00000X123456</code>
+        </div>
+        <!-- vehicle card -->
+        <div class="mk-vehicle">
+          <div class="mk-vehicle-row">
+            <div class="mk-car-icon">🚗</div>
+            <div>
+              <h2>2021 현대 아반떼 CN7 <span class="mk-src-badge">Mock</span></h2>
+              <p>1.6 스마트 · 1,598cc · 가솔린</p>
+              <div class="mk-vehicle-meta">
+                <span>색상 <strong>화이트 펄</strong></span>
+                <span>최초등록 <strong>2021.03.15</strong></span>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- score gauge -->
+        <div class="mk-score">
+          <div class="mk-gauge-wrap">
+            <svg width="80" height="80" viewBox="0 0 80 80">
+              <circle cx="40" cy="40" r="32" fill="none" stroke="#e5e7eb" stroke-width="8"/>
+              <circle cx="40" cy="40" r="32" fill="none" stroke="#16a34a" stroke-width="8"
+                stroke-dasharray="201" stroke-dashoffset="44"
+                stroke-linecap="round" transform="rotate(-90 40 40)"
+                class="mk-gauge-ring"/>
+            </svg>
+            <div class="mk-gauge-label">
+              <span class="mk-gauge-score">78</span>
+              <span class="mk-gauge-sub">/ 100</span>
+            </div>
+          </div>
+          <div class="mk-score-info">
+            <div class="label">종합 신뢰 점수</div>
+            <div class="grade">양호</div>
+            <div class="desc">경미한 사고 이력이 있으나 양호한 편입니다.</div>
+            <div class="mk-bar-row"><span class="bl">사고 이력</span><div class="mk-bar-bg"><div class="mk-bar-fill" style="width:75%; background:#f59e0b;"></div></div><span class="mk-bar-val">75</span></div>
+            <div class="mk-bar-row"><span class="bl">소유자</span><div class="mk-bar-bg"><div class="mk-bar-fill" style="width:80%;"></div></div><span class="mk-bar-val">80</span></div>
+            <div class="mk-bar-row"><span class="bl">리콜</span><div class="mk-bar-bg"><div class="mk-bar-fill" style="width:100%;"></div></div><span class="mk-bar-val">100</span></div>
+          </div>
+        </div>
+        <!-- summary cards -->
+        <div class="mk-summary">
+          <div class="mk-sum-card"><div class="si">🛡️</div><div class="sl">사고 이력</div><div class="sv sv-warn">1회</div></div>
+          <div class="mk-sum-card"><div class="si">👤</div><div class="sl">소유자</div><div class="sv sv-good">2명</div></div>
+          <div class="mk-sum-card"><div class="si">📏</div><div class="sl">주행거리</div><div class="sv sv-good" style="font-size:.68rem;">58,700km</div></div>
+          <div class="mk-sum-card"><div class="si">📋</div><div class="sl">리콜</div><div class="sv sv-good">없음</div></div>
+        </div>
+        <!-- accident section -->
+        <div class="mk-section">
+          <div class="mk-section-title">
+            <span class="ti">🛡️</span> 사고 이력
+            <span class="mk-badge" style="margin-left:4px;">Mock</span>
+          </div>
+          <table class="mk-table">
+            <thead><tr>
+              <th>날짜</th><th>유형</th><th>수리 부위</th><th style="text-align:right">수리비 추정</th>
+            </tr></thead>
+            <tbody><tr>
+              <td>2022.08.14</td>
+              <td><span class="mk-acc-badge">보험 처리</span></td>
+              <td>후범퍼, 트렁크 리드</td>
+              <td style="text-align:right; font-weight:700;">1,200,000원</td>
+            </tr></tbody>
+          </table>
+        </div>
+        <!-- mileage chart -->
+        <div class="mk-section">
+          <div class="mk-section-title"><span class="ti">📏</span> 주행거리 추이 <span class="mk-badge" style="margin-left:4px;">Mock</span></div>
+          <div class="mk-chart-wrap">
+            <svg viewBox="0 0 380 110" width="100%" style="max-height:110px; display:block;">
+              <defs>
+                <linearGradient id="cg" x1="0" y1="0" x2="0" y2="1">
+                  <stop offset="0%" stop-color="#16a34a" stop-opacity=".22"/>
+                  <stop offset="100%" stop-color="#16a34a" stop-opacity=".02"/>
+                </linearGradient>
+              </defs>
+              <!-- grid -->
+              <line x1="44" y1="15" x2="370" y2="15" stroke="#f3f4f6" stroke-width="1"/>
+              <line x1="44" y1="47" x2="370" y2="47" stroke="#f3f4f6" stroke-width="1"/>
+              <line x1="44" y1="79" x2="370" y2="79" stroke="#f3f4f6" stroke-width="1"/>
+              <text x="38" y="19" text-anchor="end" font-size="9" fill="#9ca3af">58만</text>
+              <text x="38" y="51" text-anchor="end" font-size="9" fill="#9ca3af">29만</text>
+              <text x="38" y="83" text-anchor="end" font-size="9" fill="#9ca3af">0</text>
+              <!-- area -->
+              <path d="M44,79 C75,79 75,68 106,68 C137,68 137,54 168,54 C199,54 199,40 230,40 C261,40 261,26 292,26 C323,26 323,15 354,15 L354,79 Z" fill="url(#cg)"/>
+              <!-- line (smooth bezier through 6 points) -->
+              <path d="M44,79 C75,79 75,68 106,68 C137,68 137,54 168,54 C199,54 199,40 230,40 C261,40 261,26 292,26 C323,26 323,15 354,15"
+                fill="none" stroke="#16a34a" stroke-width="2.5" stroke-linecap="round"/>
+              <!-- dots -->
+              <circle cx="44" cy="79" r="4" fill="#fff" stroke="#16a34a" stroke-width="2"/>
+              <circle cx="106" cy="68" r="4" fill="#fff" stroke="#16a34a" stroke-width="2"/>
+              <circle cx="168" cy="54" r="4" fill="#fff" stroke="#16a34a" stroke-width="2"/>
+              <circle cx="230" cy="40" r="4" fill="#fff" stroke="#16a34a" stroke-width="2"/>
+              <circle cx="292" cy="26" r="4" fill="#fff" stroke="#16a34a" stroke-width="2"/>
+              <circle cx="354" cy="15" r="4" fill="#fff" stroke="#16a34a" stroke-width="2"/>
+              <!-- last label -->
+              <text x="354" y="10" text-anchor="end" font-size="9" fill="#16a34a" font-weight="600">58,700km</text>
+              <!-- x labels -->
+              <text x="44" y="100" text-anchor="start" font-size="9" fill="#9ca3af">2021.03</text>
+              <text x="199" y="100" text-anchor="middle" font-size="9" fill="#9ca3af">2022.12</text>
+              <text x="354" y="100" text-anchor="end" font-size="9" fill="#9ca3af">2024.01</text>
+            </svg>
+          </div>
+          <div class="mk-chart-footer"><span>주행거리 이상 없음</span><span>최종: <strong style="color:#374151;">58,700km</strong></span></div>
+        </div>
+        <!-- owner timeline -->
+        <div class="mk-section">
+          <div class="mk-section-title"><span class="ti">👤</span> 소유자 이력 <span class="mk-badge" style="margin-left:4px;">Mock</span></div>
+          <div class="mk-timeline">
+            <div class="mk-tl-item">
+              <div class="mk-tl-dot"></div>
+              <div>
+                <div class="mk-tl-name">1번째 소유자 <span class="mk-tl-type type-normal">개인</span></div>
+                <div class="mk-tl-meta">2021.03 — 2023.05 · 서울</div>
+              </div>
+            </div>
+            <div class="mk-tl-item">
+              <div class="mk-tl-dot current"></div>
+              <div>
+                <div class="mk-tl-name">2번째 소유자 <span class="mk-tl-type type-normal">개인</span> <span class="mk-tl-type type-current">현재</span></div>
+                <div class="mk-tl-meta">2023.05 — 현재 · 경기</div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- recall -->
+        <div class="mk-section">
+          <div class="mk-section-title"><span class="ti">📋</span> 리콜 정보 <span class="mk-src-badge" style="margin-left:4px;">NHTSA</span></div>
+          <div class="mk-empty">✅ 해당 차량에 적용되는 리콜이 없습니다.</div>
+        </div>
+        <div class="mk-disclaimer">차량 기본정보·리콜은 NHTSA 실데이터 / 사고·소유자·주행거리는 Mock 데이터입니다.</div>
       </div>
     </div>
 
-    <p class="demo-hint" style="color: #6b7280; margin-top: 20px;">
-      데모 VIN 입력 → <strong>KMHXX00000X123456</strong> (현대 아반떼·양호) &nbsp;|&nbsp;
-      <strong>KNAJX814X0X987654</strong> (기아 K5·주의) &nbsp;|&nbsp;
-      <strong>DEMO00000000000001</strong> (제네시스 G80·우수)
+    <p style="text-align:center; margin-top:20px; font-size:.85rem; color:#6b7280;">
+      실제 서비스 →
+      <a href="https://ksa-vin-project.vercel.app" target="_blank" style="color:#4ade80; font-weight:600;">ksa-vin-project.vercel.app</a>
     </p>
   </div>
 </section>
@@ -672,6 +1032,23 @@
 </footer>
 
 <script>
+  // Mockup tab switch
+  function switchMockup(tab) {
+    const isHome = tab === 'home';
+    document.getElementById('mockup-home').style.display = isHome ? 'block' : 'none';
+    document.getElementById('mockup-report').style.display = isHome ? 'none' : 'block';
+    document.getElementById('tab-home').classList.toggle('active', isHome);
+    document.getElementById('tab-report').classList.toggle('active', !isHome);
+    document.getElementById('mock-url').textContent = isHome
+      ? 'https://ksa-vin-project.vercel.app'
+      : 'https://ksa-vin-project.vercel.app/report/KMHXX00000X123456';
+    // re-trigger gauge animation
+    if (!isHome) {
+      const ring = document.querySelector('.mk-gauge-ring');
+      if (ring) { ring.style.animation = 'none'; void ring.offsetWidth; ring.style.animation = ''; }
+    }
+  }
+
   // Fade-up on scroll
   const observer = new IntersectionObserver((entries) => {
     entries.forEach(e => {
