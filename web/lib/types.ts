@@ -39,6 +39,8 @@ export interface RecallRecord {
   completed: boolean;
 }
 
+export type DataSource = 'nhtsa' | 'mock';
+
 export interface VehicleReport {
   vehicle: VehicleInfo;
   score: number;
@@ -48,4 +50,5 @@ export interface VehicleReport {
   recalls: RecallRecord[];
   floodDamage: boolean;
   totalLoss: boolean;
+  dataSource: DataSource;
 }

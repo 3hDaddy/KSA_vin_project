@@ -1,17 +1,34 @@
 import { notFound } from 'next/navigation';
 import Link from 'next/link';
-import { getReport, getScoreGrade } from '@/lib/mockData';
+import { buildReport } from '@/lib/reportService';
+import { getScoreGrade } from '@/lib/mockData';
 import Header from '@/components/Header';
 import ScoreGauge from '@/components/ScoreGauge';
 import MileageChart from '@/components/MileageChart';
 import {
-  ArrowLeft, Car, ShieldCheck, ShieldAlert,
-  Users, Gauge, FileSearch, AlertTriangle, CheckCircle2,
+  ArrowLeft, Car, ShieldAlert, Users, Gauge,
+  FileSearch, AlertTriangle, CheckCircle2, Database, FlaskConical,
 } from 'lucide-react';
 
-function Section({ title, icon: Icon, children }: {
+function SourceBadge({ source }: { source: 'nhtsa' | 'mock' }) {
+  if (source === 'nhtsa') {
+    return (
+      <span className="flex items-center gap-1 text-xs font-medium text-blue-700 bg-blue-50 border border-blue-200 px-2 py-0.5 rounded-full">
+        <Database className="w-3 h-3" /> NHTSA
+      </span>
+    );
+  }
+  return (
+    <span className="flex items-center gap-1 text-xs font-medium text-gray-500 bg-gray-100 border border-gray-200 px-2 py-0.5 rounded-full">
+      <FlaskConical className="w-3 h-3" /> Mock
+    </span>
+  );
+}
+
+function Section({ title, icon: Icon, badge, children }: {
   title: string;
   icon: React.ElementType;
+  badge?: React.ReactNode;
   children: React.ReactNode;
 }) {
   return (
@@ -19,6 +36,7 @@ function Section({ title, icon: Icon, children }: {
       <h2 className="flex items-center gap-2 font-semibold text-gray-800 mb-4">
         <Icon className="w-4 h-4 text-emerald-600" />
         {title}
+        {badge}
       </h2>
       {children}
     </section>
@@ -28,14 +46,10 @@ function Section({ title, icon: Icon, children }: {
 export default async function ReportPage({ params }: { params: Promise<{ vin: string }> }) {
   const { vin } = await params;
 
-  // simulate async fetch
-  await new Promise(r => setTimeout(r, 600));
-
-  const report = getReport(vin);
+  const report = await buildReport(vin.toUpperCase());
   if (!report) notFound();
 
-  const { vehicle, score, accidents, owners, mileage, recalls, floodDamage, totalLoss } = report;
-  const grade = getScoreGrade(score);
+  const { vehicle, score, accidents, owners, mileage, recalls, floodDamage, totalLoss, dataSource } = report;
 
   const summaryCards = [
     {
@@ -92,9 +106,12 @@ export default async function ReportPage({ params }: { params: Promise<{ vin: st
               <Car className="w-5 h-5 text-gray-600" />
             </div>
             <div className="flex-1">
-              <h1 className="text-xl font-bold text-gray-900">
-                {vehicle.year} {vehicle.make} {vehicle.model}
-              </h1>
+              <div className="flex items-center gap-2 flex-wrap">
+                <h1 className="text-xl font-bold text-gray-900">
+                  {vehicle.year} {vehicle.make} {vehicle.model}
+                </h1>
+                <SourceBadge source={dataSource} />
+              </div>
               <p className="text-sm text-gray-500 mt-0.5">{vehicle.trim} · {vehicle.engine} · {vehicle.fuel}</p>
               <div className="flex flex-wrap gap-3 mt-3 text-xs text-gray-500">
                 <span>색상: <strong className="text-gray-700">{vehicle.color}</strong></span>
@@ -103,7 +120,6 @@ export default async function ReportPage({ params }: { params: Promise<{ vin: st
             </div>
           </div>
 
-          {/* Flags */}
           {(floodDamage || totalLoss) && (
             <div className="mt-3 flex gap-2">
               {floodDamage && (
@@ -137,7 +153,7 @@ export default async function ReportPage({ params }: { params: Promise<{ vin: st
         </div>
 
         {/* Accident History */}
-        <Section title="사고 이력" icon={ShieldAlert}>
+        <Section title="사고 이력" icon={ShieldAlert} badge={<SourceBadge source="mock" />}>
           {accidents.length === 0 ? (
             <div className="flex items-center gap-2 text-emerald-700 bg-emerald-50 rounded-lg px-4 py-3">
               <CheckCircle2 className="w-4 h-4" />
@@ -172,12 +188,12 @@ export default async function ReportPage({ params }: { params: Promise<{ vin: st
         </Section>
 
         {/* Mileage */}
-        <Section title="주행거리 추이" icon={Gauge}>
+        <Section title="주행거리 추이" icon={Gauge} badge={<SourceBadge source="mock" />}>
           <MileageChart records={mileage} />
         </Section>
 
         {/* Owner History */}
-        <Section title="소유자 이력" icon={Users}>
+        <Section title="소유자 이력" icon={Users} badge={<SourceBadge source="mock" />}>
           <div className="space-y-3">
             {owners.map((o, i) => (
               <div key={i} className="flex items-center gap-3">
@@ -197,16 +213,17 @@ export default async function ReportPage({ params }: { params: Promise<{ vin: st
                   </span>
                   <span className="text-xs text-gray-400">{o.region}</span>
                 </div>
-                {i < owners.length - 1 && (
-                  <div className="absolute left-[calc(0.875rem)] w-px h-3 bg-gray-200 translate-y-5" />
-                )}
               </div>
             ))}
           </div>
         </Section>
 
         {/* Recall */}
-        <Section title="리콜 정보" icon={FileSearch}>
+        <Section
+          title="리콜 정보"
+          icon={FileSearch}
+          badge={<SourceBadge source={dataSource === 'nhtsa' ? 'nhtsa' : 'mock'} />}
+        >
           {recalls.length === 0 ? (
             <div className="flex items-center gap-2 text-emerald-700 bg-emerald-50 rounded-lg px-4 py-3">
               <CheckCircle2 className="w-4 h-4" />
@@ -234,7 +251,7 @@ export default async function ReportPage({ params }: { params: Promise<{ vin: st
 
         {/* Disclaimer */}
         <p className="text-xs text-gray-400 text-center pb-4">
-          본 리포트는 Mock 데이터 기반 MVP입니다. 실제 차량 정보와 다를 수 있습니다.
+          차량 기본정보·리콜은 NHTSA 실제 데이터 / 사고·소유자·주행거리는 Mock 데이터입니다.
         </p>
       </main>
     </div>

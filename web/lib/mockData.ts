@@ -1,4 +1,6 @@
-import { VehicleReport } from './types';
+import { VehicleReport, DataSource } from './types';
+
+const SOURCE: DataSource = 'mock';
 
 export const MOCK_REPORTS: Record<string, VehicleReport> = {
   KMHXX00000X123456: {
@@ -38,6 +40,7 @@ export const MOCK_REPORTS: Record<string, VehicleReport> = {
       { date: '2024.01', mileage: 58700 },
     ],
     recalls: [],
+    dataSource: SOURCE,
   },
   KNAJX814X0X987654: {
     vehicle: {
@@ -93,6 +96,7 @@ export const MOCK_REPORTS: Record<string, VehicleReport> = {
         completed: false,
       },
     ],
+    dataSource: SOURCE,
   },
   DEMO00000000000001: {
     vehicle: {
@@ -121,6 +125,7 @@ export const MOCK_REPORTS: Record<string, VehicleReport> = {
       { date: '2024.01', mileage: 35800 },
     ],
     recalls: [],
+    dataSource: SOURCE,
   },
 };
 
